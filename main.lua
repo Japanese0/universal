@@ -7,8 +7,8 @@ local MakeFolder = makefolder
 local ListFiles = listfiles
 local GlobalEnvironment = getgenv
 
-if GlobalEnvironment().beachwave then
-    GlobalEnvironment().beachwave.Unload()
+if GlobalEnvironment().allahsexer.lua then
+    GlobalEnvironment().allahsexer.lua.Unload()
 end
 
 local UserInputService = game:GetService("UserInputService")
@@ -20,10 +20,10 @@ local Teams = game:GetService("Teams")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-local Repository = "https://raw.githubusercontent.com/coastss/universal/main/"
+local Repository = "https://github.com/allahsexer/universal/tree/main"
 
 function shared:Kick(String)
-    LocalPlayer:Kick("[beachwave]: " .. String)
+    LocalPlayer:Kick("[allahsexer.lua]: " .. String)
     return
 end
 
@@ -43,7 +43,7 @@ local function LoadFile(File)
     return Source, true
 end
 
-shared.BeachwaveVersion = "1/18/2022"
+shared.allahsexer.luaVersion = "1/18/2022"
 local Loader = LoadFile("utilities/loader.lua")
 Loader:Open()
 
@@ -139,7 +139,7 @@ local Visuals = {Players = {}} do
                 Box = {
                     Outline = Visuals:CreateDrawing("Square", {Color = Color3.fromRGB(0, 0, 0)}),
                     Main = Visuals:CreateDrawing("Square")
-                    --// Main = Visuals:CreateDrawing("Image", {Data = game:HttpGet("https://coasts.cool/uploads/48ny7FCjZ9iCmbAwirI.png")})
+                    --// Main = Visuals:CreateDrawing("Image", {Data = game:HttpGet("https://c.files.bbci.co.uk/13278/production/_112565487_floyd.png")})
 
                 },
                 Healthbar = {
@@ -301,7 +301,7 @@ if Games[game.GameId] then
 end
 
 local RepositoryVersion = LoadFile("version.lua")
-if shared.BeachwaveVersion ~= RepositoryVersion then
+if shared.allahsexer.luaVersion ~= RepositoryVersion then
     for Iteration = 5, 1, -1 do
         shared:SetStatus("(" .. Iteration .. ") update available! loading latest version...")
         task.wait(1)
@@ -420,7 +420,7 @@ RunService:BindToRenderStep(LoopId, 1, function()
     end
 end)
 
-GlobalEnvironment().beachwave = {
+GlobalEnvironment().allahsexer.lua = {
     Unload = function()
         PlayerAddedEvent:Disconnect()
         PlayerRemovingEvent:Disconnect()
@@ -440,7 +440,7 @@ GlobalEnvironment().beachwave = {
         Library.base:Destroy()
         FOVCircle:Remove()
 
-        GlobalEnvironment().beachwave = nil
+        GlobalEnvironment().allahsexer.lua = nil
     end
 }
 
@@ -451,7 +451,7 @@ local Fonts = {} do
 end
 
 Library.ConfigManager = {} do
-    local Directory = "beachwave"
+    local Directory = "allahsexer.lua"
     Library.ConfigManager.Directory = Directory
 
     local Conversions = {
@@ -584,7 +584,7 @@ VisualsTab:AddList({
 })
 
 local SettingsTab = Library:CreateWindow("Settings")
-SettingsTab:AddLabel({text = ("Build: " .. shared.BeachwaveVersion)})
+SettingsTab:AddLabel({text = ("Build: " .. shared.allahsexer.luaVersion)})
 SettingsTab:AddBox({text = "Config File Name", flag = "Settings Config File"})
 SettingsTab:AddButton({text = "Save Config", callback = function()
     Library.ConfigManager:SaveConfig()
@@ -595,7 +595,7 @@ SettingsTab:AddButton({text = "Load Config", callback = function()
 end})
 
 SettingsTab:AddButton({text = "Unload", callback = function()
-    GlobalEnvironment().beachwave.Unload()
+    GlobalEnvironment().allahsexer.lua.Unload()
 end})
 
 Library:Init()
