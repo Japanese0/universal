@@ -20,7 +20,7 @@ local Teams = game:GetService("Teams")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-local Repository = "https://github.com/allahsexer/universal/tree/main"
+local Repository = "https://github.com/allahsexer/universal"
 
 function shared:Kick(String)
     LocalPlayer:Kick("[allahsexer.lua]: " .. String)
