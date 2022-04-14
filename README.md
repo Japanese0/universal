@@ -1,4 +1,4 @@
-# allahsexer.lua - universal
+# allahsexer.lua - universal silent aim
 universal aimbot and visuals for roblox
 
 # games with added support
