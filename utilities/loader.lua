@@ -35,8 +35,8 @@ else
     Loader.Parent = CoreGui
 end
 
-if not shared.BeachwaveVersion then
-    shared.BeachwaveVersion = "Date not found"
+if not shared.allahVersion then
+    shared.allahVersion = "Date not found"
 end
 
 local Holder = Library:Create("ImageLabel", {
@@ -61,7 +61,7 @@ local Title = Library:Create("TextLabel", {
 	BackgroundTransparency = 1,
 	Size = UDim2.new(1, 0, 0, 40),
 	Font = Enum.Font.GothamBold,
-	Text = "beachwave",
+	Text = "allahsexer.lua",
 	TextColor3 = Color3.fromRGB(255, 255, 255),
 	TextSize = 22
 })
@@ -74,7 +74,7 @@ local Creator = Library:Create("TextLabel", {
 	Position = UDim2.new(0, 0, 0.25999999, 0),
 	Size = UDim2.new(1, 0, 0, 20),
 	Font = Enum.Font.GothamSemibold,
-	Text = ("By: coasts | Updated: " .. shared.BeachwaveVersion),
+	Text = ("By: allah | Updated: " .. shared.allahVersion),
 	TextColor3 = Color3.fromRGB(255, 255, 255),
 	TextSize = 14
 })
