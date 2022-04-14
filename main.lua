@@ -7,8 +7,8 @@ local MakeFolder = makefolder
 local ListFiles = listfiles
 local GlobalEnvironment = getgenv
 
-if GlobalEnvironment().allahsexer.lua then
-    GlobalEnvironment().allahsexer.lua.Unload()
+if GlobalEnvironment().allah then
+    GlobalEnvironment().allah.Unload()
 end
 
 local UserInputService = game:GetService("UserInputService")
@@ -20,10 +20,10 @@ local Teams = game:GetService("Teams")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-local Repository = "https://github.com/allahsexer/universal"
+local Repository = "https://raw.githubusercontent.com/allahsexer/universal/main/"
 
 function shared:Kick(String)
-    LocalPlayer:Kick("[allahsexer.lua]: " .. String)
+    LocalPlayer:Kick("[allah]: " .. String)
     return
 end
 
@@ -43,7 +43,7 @@ local function LoadFile(File)
     return Source, true
 end
 
-shared.allahsexer.luaVersion = "1/18/2022"
+shared.allahVersion = "14/04/22"
 local Loader = LoadFile("utilities/loader.lua")
 Loader:Open()
 
@@ -301,7 +301,7 @@ if Games[game.GameId] then
 end
 
 local RepositoryVersion = LoadFile("version.lua")
-if shared.allahsexer.luaVersion ~= RepositoryVersion then
+if shared.allahVersion ~= RepositoryVersion then
     for Iteration = 5, 1, -1 do
         shared:SetStatus("(" .. Iteration .. ") update available! loading latest version...")
         task.wait(1)
@@ -420,7 +420,7 @@ RunService:BindToRenderStep(LoopId, 1, function()
     end
 end)
 
-GlobalEnvironment().allahsexer.lua = {
+GlobalEnvironment().allah = {
     Unload = function()
         PlayerAddedEvent:Disconnect()
         PlayerRemovingEvent:Disconnect()
@@ -440,7 +440,7 @@ GlobalEnvironment().allahsexer.lua = {
         Library.base:Destroy()
         FOVCircle:Remove()
 
-        GlobalEnvironment().allahsexer.lua = nil
+        GlobalEnvironment().allah = nil
     end
 }
 
@@ -451,7 +451,7 @@ local Fonts = {} do
 end
 
 Library.ConfigManager = {} do
-    local Directory = "allahsexer.lua"
+    local Directory = "allah"
     Library.ConfigManager.Directory = Directory
 
     local Conversions = {
@@ -584,7 +584,7 @@ VisualsTab:AddList({
 })
 
 local SettingsTab = Library:CreateWindow("Settings")
-SettingsTab:AddLabel({text = ("Build: " .. shared.allahsexer.luaVersion)})
+SettingsTab:AddLabel({text = ("Build: " .. shared.allahVersion)})
 SettingsTab:AddBox({text = "Config File Name", flag = "Settings Config File"})
 SettingsTab:AddButton({text = "Save Config", callback = function()
     Library.ConfigManager:SaveConfig()
@@ -595,7 +595,7 @@ SettingsTab:AddButton({text = "Load Config", callback = function()
 end})
 
 SettingsTab:AddButton({text = "Unload", callback = function()
-    GlobalEnvironment().allahsexer.lua.Unload()
+    GlobalEnvironment().allah.Unload()
 end})
 
 Library:Init()
