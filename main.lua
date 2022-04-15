@@ -1,3 +1,18 @@
+--// Exploit Check \\--
+if #{firetouchinterest, fireproximityprompt, hookmetamethod, setupvalue, getgc} ~= 5 then
+    while true do
+    end
+end
+
+--// Exploit Fix \\--
+if not pcall(function() return syn.protect_gui end) then
+    syn = {}
+    syn.protect_gui = function(A_1)
+        A_1.Parent = game:GetService("CoreGui")
+    end
+end
+
+
 local MoveMouse = mousemoverel
 local ReadFile = readfile
 local WriteFile = writefile
